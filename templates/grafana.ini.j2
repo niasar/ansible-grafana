@@ -195,3 +195,9 @@ provider = {{ grafana_image_storage.provider }}
 {{ k }} = {{ v }}
 {%   endfor %}
 {% endif %}
+
+# Features
+{% if grafana_features != [] %}
+[feature_toggles]
+enabled = {% for item in grafana_features %}{{ item }} {% endfor %}
+{% endif %}
